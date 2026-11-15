@@ -1,0 +1,24 @@
+{
+  "name": "yukari-kasumiai-chert-agent",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^22.23.2 || ^24.0.0 || ^26.0.0"
+  },
+  "scripts": {
+    "start": "node --env-file=.env.local agent.mjs start",
+    "qr": "node --import ./clock-sync.mjs --env-file=.env.local make-iphone-link.mjs",
+    "e2e": "node --import ./clock-sync.mjs --env-file=.env.local e2e-spoken-cmd.mjs",
+    "download-files": "node --env-file=.env.local agent.mjs download-files",
+    "check": "node --check chert-rooms.mjs && node --check greet.mjs && node --check face.mjs && node --check agent.mjs"
+  },
+  "dependencies": {
+    "@livekit/agents": "1.8.0",
+    "@livekit/agents-plugin-elevenlabs": "1.8.0",
+    "@livekit/agents-plugin-openai": "1.8.0",
+    "@livekit/agents-plugin-silero": "1.8.0",
+    "@livekit/rtc-node": "0.13.35",
+    "qrcode": "^1.5.4"
+  }
+}
